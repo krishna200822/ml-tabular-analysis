@@ -1,101 +1,113 @@
-# 📊 Medical Insurance Cost Analysis (EDA + Statistical Testing)
+🧠 ML Practice Projects
 
-## 🧠 Overview
-This project performs Exploratory Data Analysis (EDA) and statistical feature analysis on a medical insurance dataset to understand factors affecting insurance charges.
+This repo is basically me trying to actually understand machine learning instead of just watching videos and pretending I get it.
 
-The goal is to:
-- Identify important features influencing medical costs
-- Analyze relationships using statistical methods
-- Prepare data for future machine learning models
+Right now it has two small projects where I went step by step from raw data → cleaning → feature engineering → model → evaluation.
+
+Nothing fancy. Just real practice.
 
 ---
 
-## 📁 Dataset
-The dataset contains 1338 rows and 7 columns:
+📁 Projects
 
-- age – Age of the individual  
-- sex – Gender  
-- bmi – Body Mass Index  
-- children – Number of dependents  
-- smoker – Smoking status  
-- region – Residential region  
-- charges – Medical insurance cost  
+1. Insurance Cost Prediction
 
----
+In this project, I worked with a dataset that includes age, BMI, smoking habits, etc., and tried to predict insurance charges.
 
-## 🔍 Steps Performed
+What I actually did:
 
-### 1. Data Loading & Inspection
-- Loaded dataset using pandas
-- Checked shape, columns, and data types
-- Verified missing values (none found)
+- Checked the data properly instead of blindly training
+- Looked at distributions and outliers (boxplots, histograms)
+- Converted categorical data into numbers
+- Created some extra features (like BMI categories)
+- Scaled features
+- Trained a Linear Regression model
 
----
+Result:
 
-### 2. Exploratory Data Analysis (EDA)
-- Statistical summary using describe()
-- Distribution and relationship analysis
-- Basic visualization using Seaborn and Matplotlib
+- R² score came around 0.79
+
+Not perfect, but decent for a basic model.
+
+File:
+
+- "insuranceproject.ipynb"
 
 ---
 
-### 3. Feature Engineering
-- Converted categorical variables into encoded features:
-  - is_female, is_smoker
-  - Region one-hot encoding
-  - BMI categories
+2. Heart Disease Prediction
+
+This one is a classification problem where the goal is to predict if a person has heart disease.
+
+What I did here:
+
+- Explored the dataset (counts, distributions, relationships)
+- Found some weird values (like cholesterol = 0) and fixed them
+- Used encoding for categorical features
+- Checked correlations
+- Applied feature scaling
+
+Some observations:
+
+- Features like max heart rate and oldpeak seem pretty important
+- Certain categories (like chest pain type) clearly affect the output
+
+File:
+
+- "Heart.ipynb"
 
 ---
 
-### 4. Correlation Analysis
-- Used Pearson Correlation for numerical features
-- Measured linear relationship with target (charges)
+⚙️ Tools I Used
+
+- Python
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+- Scikit-learn
 
 ---
 
-### 5. Chi-Square Test (Categorical Features)
-- Converted charges into bins using qcut
-- Applied Chi-Square Test of Independence
-- Determined feature importance based on p-value
+🚀 How to Run
+
+Clone the repo:
+
+git clone https://github.com/krishna200822/Insurance-anayzler-for-model.git
+
+Install dependencies:
+
+pip install numpy pandas matplotlib seaborn scikit-learn
+
+Open the notebooks and run them step by step.
 
 ---
 
-## 📈 Key Insights
-- Smoking status has a strong impact on insurance charges  
-- BMI and age show noticeable correlation  
-- Some categorical features have weak statistical significance  
+📌 What I’m Trying to Learn
+
+- How data actually behaves (not just theory)
+- When and why to clean or transform data
+- How features affect model performance
+- How to move from intuition → implementation
 
 ---
 
-## ⚠️ Limitations
-- Binning (qcut) reduces precision of continuous data  
-- Chi-square test assumptions may not always hold  
-- Results are exploratory, not final model conclusions  
+⚠️ Honest Note
+
+This is not an advanced project.
+
+I’m still learning:
+
+- Better models
+- Proper validation
+- Avoiding mistakes like data leakage
+- Writing cleaner pipelines
+
+This repo is just part of that process.
 
 ---
 
-## 🚀 Future Work
-- Build regression models (Linear Regression, etc.)
-- Implement feature selection pipelines
-- Apply scaling and normalization
-- Train ML models and evaluate performance
+👤 Author
 
----
-
-## 🛠️ Tech Stack
-- Python  
-- NumPy  
-- Pandas  
-- Matplotlib  
-- Seaborn  
-- SciPy  
-
----
-
-## 🎯 Conclusion
-This project builds a strong foundation in:
-- Data understanding  
-- Statistical reasoning  
-- Feature analysis  
-
-It prepares the dataset for machine learning modeling.
+Krishna
+Trying to get good at ML by actually doing the work instead of skipping steps
