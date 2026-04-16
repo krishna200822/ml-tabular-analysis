@@ -106,6 +106,74 @@ I’m still learning:
 This repo is just part of that process.
 
 ---
+🚗 Ford Car Price Prediction
+📌 Problem Statement
+
+The objective of this project is to predict the price of used Ford cars using structured tabular data. The dataset includes multiple features such as model type, mileage, fuel type, transmission, and engine size, which influence the car price.
+
+📊 Dataset
+Source: Kaggle Ford Car Dataset
+Shape: 17,966 rows × 9 columns
+Features:
+model (categorical)
+year (numerical)
+price (target variable)
+transmission (categorical)
+mileage (numerical)
+fuelType (categorical)
+tax (numerical)
+mpg (numerical)
+engineSize (numerical)
+
+✔ No missing values in dataset
+
+🔍 Exploratory Data Analysis (EDA)
+Analyzed distribution of price using histogram
+Observed spread and skewness in car prices
+Summary statistics:
+Mean price ≈ 12,279
+Wide range from very low to high-end vehicles
+Key Observations:
+Mileage shows negative relationship with price
+Newer cars tend to have higher prices
+Engine size and fuel efficiency influence price moderately
+⚙️ Data Preprocessing
+Checked dataset structure using .info()
+Verified no null values
+Separated features (X) and target (y)
+Applied encoding techniques:
+Label Encoding for categorical variables
+One-Hot Encoding (for comparison experiment)
+Feature scaling applied to numerical features
+🧪 Experiment: Encoding Comparison
+
+Two encoding techniques were tested to evaluate their effect on model performance:
+
+1. Label Encoding
+Converts categories into integer values
+Introduces ordinal relationship (not always correct)
+2. One-Hot Encoding
+Creates binary columns for each category
+Preserves independence of categories
+🤖 Model Training
+Algorithm: Linear Regression
+Train-Test Split: 80-20
+Model trained on processed dataset
+🧠 Key Insights
+Encoding choice significantly affects model performance
+One-Hot Encoding performs better as it avoids false ordinal relationships
+Linear Regression provides a baseline but may not capture complex patterns
+⚠️ Limitations
+Linear model cannot capture non-linear relationships
+Label Encoding introduces misleading numerical ordering
+No advanced feature engineering applied
+🚀 Future Improvements
+Use advanced models:
+Random Forest
+XGBoost
+Perform feature engineering
+Hyperparameter tuning
+Cross-validation
 
 👤 Author
 
