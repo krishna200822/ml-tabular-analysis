@@ -1,181 +1,167 @@
-🧠 ML Practice Projects
+# 🧠 ML Tabular Analysis - Learning by Doing
 
-This repo is basically me trying to actually understand machine learning instead of just watching videos and pretending I get it.
+A collection of machine learning projects focused on tabular data analysis. This repository documents my journey in understanding ML fundamentals through hands-on implementation rather than just theory.
 
-Right now it has two small projects where I went step by step from raw data → cleaning → feature engineering → model → evaluation.
-
-Nothing fancy. Just real practice.
+**Philosophy**: Raw data → EDA → Cleaning → Feature Engineering → Modeling → Evaluation
 
 ---
 
-📁 Projects
+## 📁 Projects Overview
 
-1. Insurance Cost Prediction
+### 1. 🏥 Heart Disease Prediction
+**Type**: Classification Problem  
+**Objective**: Predict whether a patient has heart disease based on medical indicators
 
-In this project, I worked with a dataset that includes age, BMI, smoking habits, etc., and tried to predict insurance charges.
+**Dataset**:
+- **File**: `heart.csv`
+- **Samples**: 918 records
+- **Features**: 11 medical indicators + 1 target variable
+- **Target**: HeartDisease (Binary: 0 or 1)
 
-What I actually did:
+**Key Features**:
+- Age, Sex, Chest Pain Type
+- Resting Blood Pressure, Cholesterol
+- Fasting Blood Sugar, Resting ECG
+- Max Heart Rate, Exercise Angina
+- Oldpeak (ST depression), ST Slope
 
-- Checked the data properly instead of blindly training
-- Looked at distributions and outliers (boxplots, histograms)
-- Converted categorical data into numbers
-- Created some extra features (like BMI categories)
-- Scaled features
-- Trained a Linear Regression model
+**What I Did**:
+- ✅ Explored distributions and identified data quality issues
+- ✅ Fixed anomalies (cholesterol = 0, resting BP = 0) using mean imputation
+- ✅ Performed categorical encoding (one-hot encoding)
+- ✅ Analyzed correlations with target variable
+- ✅ Applied feature scaling for numerical features
+- ✅ Visualized relationships using countplots, boxplots, violin plots, and heatmaps
 
-Result:
+**Key Findings**:
+- 55.3% of patients have heart disease in the dataset
+- Max Heart Rate shows strong inverse relationship with disease
+- Oldpeak (ST depression) is a significant indicator
+- Chest pain type significantly affects prediction
+- Features like Sex and Exercise Angina are important discriminators
 
-- R² score came around 0.79
-
-Not perfect, but decent for a basic model.
-
-File:
-
-- "insuranceproject.ipynb"
-
----
-
-2. Heart Disease Prediction
-
-This one is a classification problem where the goal is to predict if a person has heart disease.
-
-What I did here:
-
-- Explored the dataset (counts, distributions, relationships)
-- Found some weird values (like cholesterol = 0) and fixed them
-- Used encoding for categorical features
-- Checked correlations
-- Applied feature scaling
-
-Some observations:
-
-- Features like max heart rate and oldpeak seem pretty important
-- Certain categories (like chest pain type) clearly affect the output
-
-File:
-
-- "Heart.ipynb"
+**Notebook**: `Heart.ipynb`
 
 ---
 
-⚙️ Tools I Used
+### 2. 💰 Insurance Cost Prediction
+**Type**: Regression Problem  
+**Objective**: Predict medical insurance charges based on demographic and lifestyle factors
 
-- Python
-- NumPy
-- Pandas
-- Matplotlib
-- Seaborn
-- Scikit-learn
+**Dataset**:
+- **File**: `insurance.csv`
+- **Target**: Insurance charges (continuous variable)
+
+**What I Did**:
+- Analyzed distribution of insurance charges
+- Handled categorical features (region, smoking status)
+- Created feature engineering:
+  - BMI categories (Underweight, Normal, Overweight, Obese)
+  - Age groups
+- Applied One-Hot Encoding for categorical variables
+- Normalized/scaled numerical features
+- Trained Linear Regression model
+- Evaluated using R² score and other metrics
+
+**Model Performance**:
+- **R² Score**: ~0.79
+- **Interpretation**: Model explains ~79% of variance in insurance costs
+
+**Insights**:
+- Smoking status is the strongest predictor of insurance charges
+- Age and BMI are significant factors
+- Geographic region has a moderate impact
+- Positive correlation between age and charges
+
+**Notebook**: `insuranceproject.ipynb`
+
+---
+
+### 3. 🚗 Ford Car Price Prediction
+**Type**: Regression Problem  
+**Objective**: Predict used Ford car prices from tabular features
+
+**Dataset**:
+- **File**: `ford.csv`
+- **Samples**: 17,966 records
+- **Target**: Price (continuous variable)
+
+**Features**:
+| Feature | Type | Description |
+|---------|------|-------------|
+| Model | Categorical | Car model type |
+| Year | Numerical | Manufacturing year |
+| Transmission | Categorical | Manual/Automatic |
+| Mileage | Numerical | Miles driven |
+| Fuel Type | Categorical | Petrol/Diesel/Hybrid |
+| Tax | Numerical | Annual tax |
+| MPG | Numerical | Miles per gallon |
+| Engine Size | Numerical | Engine displacement |
+
+**What I Did**:
+- ✅ EDA: Analyzed price distribution and feature relationships
+- ✅ Data Quality: Verified no missing values
+- ✅ Categorical Encoding Comparison:
+  - **Label Encoding**: Converts to integers (introduces false ordering)
+  - **One-Hot Encoding**: Creates binary columns (preserves independence)
+- ✅ Feature Scaling: Applied to numerical features
+- ✅ Model Training: Linear Regression baseline
+- ✅ Performance Comparison: Evaluated both encoding methods
+
+**Key Observations**:
+- Newer cars command higher prices
+- Strong negative correlation between mileage and price
+- Engine size and fuel efficiency (MPG) moderately influence price
+- **One-Hot Encoding outperforms Label Encoding** (avoids misleading ordinal relationships)
+
+**Experiment Results**:
+- One-Hot Encoding showed better model performance
+- Demonstrated importance of proper categorical variable handling
+
+**Limitations & Future Work**:
+- ⚠️ Linear model cannot capture non-linear patterns
+- 🚀 Upgrade to Random Forest, XGBoost for better performance
+- 🚀 Implement feature engineering (price per year, efficiency ratios)
+- 🚀 Add hyperparameter tuning and cross-validation
+- 🚀 Explore interaction effects
+
+**Notebook**: `fordcar.ipynb`
 
 ---
 
-🚀 How to Run
+## 📚 Additional Learning Materials
 
-Clone the repo:
-
-git clone https://github.com/krishna200822/Insurance-anayzler-for-model.git
-
-Install dependencies:
-
-pip install numpy pandas matplotlib seaborn scikit-learn
-
-Open the notebooks and run them step by step.
-
----
-
-📌 What I’m Trying to Learn
-
-- How data actually behaves (not just theory)
-- When and why to clean or transform data
-- How features affect model performance
-- How to move from intuition → implementation
+This repo also includes foundational learning notebooks:
+- `numpyadvpython.ipynb` - NumPy advanced operations
+- `numpymatrixfunctions.ipynb` - Matrix manipulations
+- `pandasfull.ipynb` - Comprehensive Pandas tutorial
+- `pandas.ipynb` - Basic Pandas operations
+- `logticregression1.ipynb` - Logistic Regression deep dive
+- `statsinpy.ipynb` - Statistical concepts in Python
+- `linkedlist.ipynb` - Data structures
 
 ---
 
-⚠️ Honest Note
+## 🛠️ Tech Stack
 
-This is not an advanced project.
-
-I’m still learning:
-
-- Better models
-- Proper validation
-- Avoiding mistakes like data leakage
-- Writing cleaner pipelines
-
-This repo is just part of that process.
+**Languages & Libraries**:
+- Python 3.12+
+- **Data Processing**: Pandas, NumPy
+- **Visualization**: Matplotlib, Seaborn
+- **Machine Learning**: Scikit-learn
+- **Analysis**: sheryanalysis (custom package)
 
 ---
-🚗 Ford Car Price Prediction
-📌 Problem Statement
 
-The objective of this project is to predict the price of used Ford cars using structured tabular data. The dataset includes multiple features such as model type, mileage, fuel type, transmission, and engine size, which influence the car price.
+## ⚙️ Installation & Setup
 
-📊 Dataset
-Source: Kaggle Ford Car Dataset
-Shape: 17,966 rows × 9 columns
-Features:
-model (categorical)
-year (numerical)
-price (target variable)
-transmission (categorical)
-mileage (numerical)
-fuelType (categorical)
-tax (numerical)
-mpg (numerical)
-engineSize (numerical)
+**Clone the repository**:
+```bash
+git clone https://github.com/krishna200822/ml-tabular-analysis.git
+cd ml-tabular-analysis
 
-✔ No missing values in dataset
 
-🔍 Exploratory Data Analysis (EDA)
-Analyzed distribution of price using histogram
-Observed spread and skewness in car prices
-Summary statistics:
-Mean price ≈ 12,279
-Wide range from very low to high-end vehicles
-Key Observations:
-Mileage shows negative relationship with price
-Newer cars tend to have higher prices
-Engine size and fuel efficiency influence price moderately
-⚙️ Data Preprocessing
-Checked dataset structure using .info()
-Verified no null values
-Separated features (X) and target (y)
-Applied encoding techniques:
-Label Encoding for categorical variables
-One-Hot Encoding (for comparison experiment)
-Feature scaling applied to numerical features
-🧪 Experiment: Encoding Comparison
 
-Two encoding techniques were tested to evaluate their effect on model performance:
 
-1. Label Encoding
-Converts categories into integer values
-Introduces ordinal relationship (not always correct)
-2. One-Hot Encoding
-Creates binary columns for each category
-Preserves independence of categories
-🤖 Model Training
-Algorithm: Linear Regression
-Train-Test Split: 80-20
-Model trained on processed dataset
-🧠 Key Insights
-Encoding choice significantly affects model performance
-One-Hot Encoding performs better as it avoids false ordinal relationships
-Linear Regression provides a baseline but may not capture complex patterns
-⚠️ Limitations
-Linear model cannot capture non-linear relationships
-Label Encoding introduces misleading numerical ordering
-No advanced feature engineering applied
-🚀 Future Improvements
-Use advanced models:
-Random Forest
-XGBoost
-Perform feature engineering
-Hyperparameter tuning
-Cross-validation
 
-👤 Author
 
-Krishna
-Trying to get good at ML by actually doing the work instead of skipping steps
