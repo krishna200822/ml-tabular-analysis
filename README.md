@@ -1,9 +1,8 @@
-
-   ```bas# ML Tabular Analysis
+# **ML Tabular Analysis** 📊
 
 A hands-on collection of Jupyter notebooks for learning **tabular machine learning, data analysis, statistics, visualization, and core Python data-science tools**.
 
-This repository is primarily a learning/reference project rather than a production ML system. It documents the progression from NumPy and pandas fundamentals to classification, ensemble learning, hyperparameter tuning, dimensionality reduction, and clustering.
+This repository is primarily a learning/reference project rather than a production ML system. It documents the progression from NumPy and pandas fundamentals to classification, ensemble learning, hyperparameter tuning, clustering, and visualization.
 
 ## 🚀 What This Repository Covers
 
